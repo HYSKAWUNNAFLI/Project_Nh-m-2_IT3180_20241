@@ -729,7 +729,9 @@ small {
 }
 
 .col-5 {
-    width: 160px;
+    width: 100px;
+    margin-left: 25px;
+    margin-right:25px;
 }
 
 .col-5 img {
