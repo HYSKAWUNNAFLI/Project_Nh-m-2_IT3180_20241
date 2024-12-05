@@ -186,7 +186,14 @@ body {
     color: #1296d3;
     border-bottom: 2px solid #1296d3;
     /* Thêm gạch chân cho mục active/hover */
+
 }
+
+.active-nav-option {
+    color: #007bff; /* Màu xanh hoặc bất kỳ màu nào bạn muốn */
+    border-bottom: 2px solid #007bff; /* Dòng gạch chân bên dưới */
+  }
+  
 
 /* Responsive Styling */
 @media (max-width: 768px) {
