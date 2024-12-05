@@ -116,7 +116,7 @@ body {
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: url('assets/Ecommerce/images/Background.png') no-repeat center center fixed;
+    background: url('../assets/Ecommerce/images/landingpage.jpg') no-repeat center center fixed;
     background-size: cover;
     background-color: #cb9b54;
     color: #ffffff;
