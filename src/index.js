@@ -20,6 +20,10 @@ app.use(express.urlencoded({ extended: true }));
 // Static folder for assets (e.g., CSS, images, JS files)
 app.use(express.static(path.join(__dirname, 'public')));
 
+//connect to database
+const db = require('./config/db/db');
+db.connect();
+
 // PostgreSQL connection setup
 // const pool = new Pool({
 //   user: process.env.PGUSER || 'your_username',
@@ -57,6 +61,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use((req, res) => {
 //   res.status(404).render('404', { title: '404 - Page Not Found' });
 // });
+
+
 
 const route = require("./routes/siteRouters");
 route(app);
