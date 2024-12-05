@@ -9,7 +9,14 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Configure Handlebars as the view engine
-app.engine('handlebars', engine());
+app.engine(
+  'handlebars',
+  engine({
+    layoutsDir: path.join(__dirname, 'views', 'layouts'), // Thư mục layout
+    defaultLayout: 'main', // Layout mặc định
+    partialsDir: path.join(__dirname, 'views', 'partials'), // Thư mục partials
+  })
+);
 app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, 'views'));
 

@@ -134,8 +134,8 @@ body {
     align-items: center;
     padding: 20px 40px;
     /* Thêm padding hai bên */
-    background-color: rgba(0, 0, 0, 0.8);
-    /* Màu nền trong suốt */
+    background-color: #000;
+    /* Màu nền đen bóng */
     position: sticky;
     /* Header cố định khi cuộn */
     top: 0;
@@ -147,8 +147,9 @@ body {
     /* Hiệu ứng đổ bóng */
 }
 
+
 #header .logo {
-    width: 150px;
+    width: 80px;
     /* Giữ logo kích thước cố định */
 }
 
