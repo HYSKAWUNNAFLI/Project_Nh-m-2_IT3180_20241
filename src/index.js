@@ -31,44 +31,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 const db = require('./models/db');
 db.connect();
 
-// PostgreSQL connection setup
-// const pool = new Pool({
-//   user: process.env.PGUSER || 'your_username',
-//   host: process.env.PGHOST || 'localhost',
-//   database: process.env.PGDATABASE || 'your_database',
-//   password: process.env.PGPASSWORD || 'your_password',
-//   port: process.env.PGPORT || 5432,
-// });
-
-// Test the PostgreSQL connection
-// pool.connect((err) => {
-//   if (err) {
-//     console.error('Error connecting to PostgreSQL:', err.stack);
-//   } else {
-//     console.log('Connected to PostgreSQL database');
-//   }
-// });
-
-// Define routes
-// app.get('/', async (req, res) => {
-//   try {o
-//     const result = await pol.query('SELECT * FROM your_table_name'); // Replace with your table name
-//     res.render('home', { data: result.rows }); // Render the 'home' view with data
-//   } catch (err) {
-//     console.error('Error executing query:', err.stack);
-//     res.status(500).send('Internal Server Error');
-//   }
-// });
-
-// app.get('/about', (req, res) => {
-//   res.render('about', { title: 'About Page' });
-// });
-
-// 404 handler
-// app.use((req, res) => {
-//   res.status(404).render('404', { title: '404 - Page Not Found' });
-// });
-
 
 
 const productRouters = require('./routes/productRouters');

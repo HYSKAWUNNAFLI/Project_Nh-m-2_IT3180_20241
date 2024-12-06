@@ -452,7 +452,7 @@ p {
 
 .btn {
     display: inline-block;
-    background: #ff523b;
+    background: #ffffff;
     color: #fff;
     padding: 8px 30px;
     margin: 30px 0;
@@ -1162,7 +1162,7 @@ form a {
 /* Header Title */
 .container h1 {
     font-size: 2.5rem;
-    color: #333;
+    color: #c2dbb2;
     margin-bottom: 20px;
     text-align: center;
     text-transform: uppercase;
@@ -1227,7 +1227,7 @@ form a {
     margin: 15px 0;
     padding: 10px 20px;
     color: #fff;
-    background-color: #3498db;
+    background-color: #000000;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -1235,7 +1235,7 @@ form a {
 
 /* Button Hover Effect */
 .product-card .btn:hover {
-    background-color: #2980b9;
+    background-color: #ff0000;
     transform: scale(1.05);
 }
 
