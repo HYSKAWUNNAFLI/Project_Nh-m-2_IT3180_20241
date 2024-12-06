@@ -1,0 +1,15 @@
+<div class="container">
+    <h1>All Products</h1>
+    <div class="product-list">
+        {{#each products}}
+        <div class="product-card">
+            <img src="/assets/Ecommerce/Products/{{this.product_image}}" alt="{{this.product_title}}">
+            <h2>{{this.product_title}}</h2>
+            <p>{{this.product_desc}}</p>
+            <p>Price: ${{this.product_price}}</p>
+            <a href="/products/{{this.product_id}}" class="btn">View Details</a>
+        </div>
+        {{/each}}
+    </div>
+</div>
+{{!-- <script src="/js/image_scripts.js"></script> --}}

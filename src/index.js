@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 //connect to database
-const db = require('./config/db/db');
+const db = require('./models/db');
 db.connect();
 
 // PostgreSQL connection setup
@@ -71,9 +71,17 @@ db.connect();
 
 
 
-const route = require("./routes/siteRouters");
-route(app);
+const productRouters = require('./routes/productRouters');
+app.use('/product',productRouters);
 
+const defaultRouters = require('./routes/defaultRouters');
+app.use('/',defaultRouters);
+
+const cartRouters = require('./routes/cartRouters');
+app.use('/cart',cartRouters);
+
+const usersRouters = require('./routes/usersRouters');
+app.use('/account',usersRouters);
 
 // Start the server
 app.listen(PORT, () => {
