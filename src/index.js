@@ -45,6 +45,8 @@ app.use('/cart',cartRouters);
 const usersRouters = require('./routes/usersRouters');
 app.use('/account',usersRouters);
 
+
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

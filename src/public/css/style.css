@@ -261,7 +261,7 @@ body {
     position: absolute;
     top: 127px;
     /* Khoảng cách từ đầu màn hình xuống */
-    left: 50%;
+    left: 76%;
     transform: translateX(-50%);
     /* Căn giữa menu con */
     background-color: #fff;
