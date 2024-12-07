@@ -5,7 +5,7 @@ const pool = new Pool({
     user: 'postgres', // Thay bằng tên người dùng PostgreSQL của bạn
     host: 'localhost', // Thay bằng địa chỉ máy chủ của bạn
     database: 'CXWUD', // Thay bằng tên database của bạn
-    password: '123456', // Thay bằng mật khẩu của bạn
+    password: 'scratwos2004', // Thay bằng mật khẩu của bạn
     port: 5432, // Cổng mặc định của PostgreSQL
 });
 
