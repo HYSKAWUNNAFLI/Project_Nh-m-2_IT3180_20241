@@ -140,4 +140,122 @@ const showAllProductsByCategory4 = async (req, res) => {
     }
 };
 
-module.exports = { showAllProducts, showAllProductsByCategory1,showAllProductsByCategory2, showAllProductsByCategory3,showAllProductsByCategory4  };
+const showAllProductsByBrand1 = async (req, res) => {
+    try {
+        // Xác định brand cần lọc (ở đây cố định là brand_id = 4)
+        const brandId = 2;
+
+        // Lấy tất cả sản phẩm theo brand
+        const productsResult = await pool.query(
+            'SELECT * FROM products WHERE product_brand = $1',
+            [brandId]
+        );
+        const products = productsResult.rows;
+
+        // Gửi dữ liệu sản phẩm đến view
+        res.render('products', {
+            products, // Danh sách sản phẩm
+        });
+    } catch (err) {
+        console.error('Error fetching products by brand:', err.message);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+
+
+const showAllProductsByBrand2 = async (req, res) => {
+    try {
+        // Xác định brand cần lọc (ở đây cố định là brand_id = 4)
+        const brandId = 1;
+
+        // Lấy tất cả sản phẩm theo brand
+        const productsResult = await pool.query(
+            'SELECT * FROM products WHERE product_brand = $1',
+            [brandId]
+        );
+        const products = productsResult.rows;
+
+        // Gửi dữ liệu sản phẩm đến view
+        res.render('products', {
+            products, // Danh sách sản phẩm
+        });
+    } catch (err) {
+        console.error('Error fetching products by brand:', err.message);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+
+
+const showAllProductsByBrand3 = async (req, res) => {
+    try {
+        // Xác định brand cần lọc (ở đây cố định là brand_id = 4)
+        const brandId = 4;
+
+        // Lấy tất cả sản phẩm theo brand
+        const productsResult = await pool.query(
+            'SELECT * FROM products WHERE product_brand = $1',
+            [brandId]
+        );
+        const products = productsResult.rows;
+
+        // Gửi dữ liệu sản phẩm đến view
+        res.render('products', {
+            products, // Danh sách sản phẩm
+        });
+    } catch (err) {
+        console.error('Error fetching products by brand:', err.message);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+
+const showAllProductsByBrand4 = async (req, res) => {
+    try {
+        // Xác định brand cần lọc (ở đây cố định là brand_id = 4)
+        const brandId = 3;
+
+        // Lấy tất cả sản phẩm theo brand
+        const productsResult = await pool.query(
+            'SELECT * FROM products WHERE product_brand = $1',
+            [brandId]
+        );
+        const products = productsResult.rows;
+
+        // Gửi dữ liệu sản phẩm đến view
+        res.render('products', {
+            products, // Danh sách sản phẩm
+        });
+    } catch (err) {
+        console.error('Error fetching products by brand:', err.message);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+
+
+const showAllProductsByBrand5 = async (req, res) => {
+    try {
+        // Xác định brand cần lọc (ở đây cố định là brand_id = 4)
+        const brandId = 5;
+
+        // Lấy tất cả sản phẩm theo brand
+        const productsResult = await pool.query(
+            'SELECT * FROM products WHERE product_brand = $1',
+            [brandId]
+        );
+        const products = productsResult.rows;
+
+        // Gửi dữ liệu sản phẩm đến view
+        res.render('products', {
+            products, // Danh sách sản phẩm
+        });
+    } catch (err) {
+        console.error('Error fetching products by brand:', err.message);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+
+module.exports = { showAllProducts, showAllProductsByCategory1,showAllProductsByCategory2, showAllProductsByCategory3,showAllProductsByCategory4, showAllProductsByBrand1, showAllProductsByBrand2, showAllProductsByBrand3, showAllProductsByBrand4, showAllProductsByBrand5  };

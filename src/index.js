@@ -45,7 +45,8 @@ app.use('/cart',cartRouters);
 const usersRouters = require('./routes/usersRouters');
 app.use('/account',usersRouters);
 
-
+const viewdetailRouters = require('./routes/viewdetailRouters');
+app.use('/viewdetail',viewdetailRouters);
 
 // Start the server
 app.listen(PORT, () => {
