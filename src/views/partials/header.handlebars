@@ -13,14 +13,18 @@
 <body>
     <!-- Header -->
     <section id="header">
-        <a href="/"><img src="/assets/Ecommerce/images/07714f27254fd9a4771c3e604c7a62fd.jpg" class="logo" alt="CXWUD Logo"></a>
+        <div class="logo-container" style="text-align: center;">
+            <a href="/">
+                <img src="/assets/Ecommerce/images/07714f27254fd9a4771c3e604c7a62fd.jpg" class="logo" alt="CXWUD Logo">
+            </a>
+            <p style="margin-top: 10px; font-size: 18px; font-weight: bold;">CXWUD</p>
+        </div>
 
         <div class="search__container">
             <input class="search__input" type="text" placeholder="Search">
         </div>
 
-        <div class="credits__container">
-        </div>
+        <div class="credits__container"></div>
 
         <div class="menu">
             <ul id="navbar">
@@ -33,9 +37,8 @@
                             <h4>ALL CATEGORIES</h4>
                             <a href="/product/shoes">Shoes</a>
                             <a href="/product/top">Top</a>
-                            <a href="/product/bottom">Bottom</a>                                             
+                            <a href="/product/bottom">Bottom</a>
                             <a href="/product/accessories">Accessories</a>
-                            
                         </div>
 
                         <!-- Column 2 -->
@@ -43,7 +46,6 @@
                             <h4>COLLECTION CXWUD</h4>
                             <a href="/product">All Products</a>
                             <a href="https://www.worldfootwear.com/tag/campaign/290.html">Campaign</a>
-                            
                         </div>
 
                         <!-- Column 3 -->
@@ -59,12 +61,18 @@
                 <li><a class="nav-option-1" href="/product/adidas">Adidas</a></li>
                 <li><a class="nav-option-1" href="/product/stussy">Stussy</a></li>
                 <li><a class="nav-option" href="/account">Account</a></li>
-                <li id="lg-bag">
-                    <a href="/cart">
-                        <img src="/assets/Ecommerce/images/cart.png" class="cart-icon">
-                        <span class="cart-count">3</span>
-                    </a>
+               <li id="lg-bag" style="position: relative;">
+                          <a href="/cart">
+                           <img src="/assets/Ecommerce/images/cart.png" class="cart-icon">
+                        <!-- Hiển thị tổng số sản phẩm -->
+                     <span class="cart-count">{{#if cartItemCount}}{{cartItemCount}}{{else}}0{{/if}}</span>
+
+                           </a>
                 </li>
+
+
             </ul>
         </div>
     </section>
+</body>
+</html>

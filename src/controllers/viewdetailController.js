@@ -38,6 +38,39 @@ const getProductDetails = async (req, res) => {
     }
 };
 
+const addToCart = async (req, res) => {
+    try {
+        const { product_id, quantity } = req.body;
+        const ipAddress = req.ip; // Sử dụng IP thay cho user ID
+
+        // Kiểm tra xem sản phẩm đã tồn tại trong giỏ chưa
+        const checkQuery = `SELECT * FROM cart WHERE p_id = $1 AND ip_add = $2`;
+        const checkResult = await db.query(checkQuery, [product_id, ipAddress]);
+
+        if (checkResult.rows.length > 0) {
+            // Nếu sản phẩm đã tồn tại, cập nhật số lượng
+            const updateQuery = `
+                UPDATE cart 
+                SET qty = qty + $1 
+                WHERE p_id = $2 AND ip_add = $3
+            `;
+            await db.query(updateQuery, [quantity, product_id, ipAddress]);
+        } else {
+            // Nếu chưa tồn tại, thêm sản phẩm mới
+            const insertQuery = `
+                INSERT INTO cart (p_id, ip_add, qty)
+                VALUES ($1, $2, $3)
+            `;
+            await db.query(insertQuery, [product_id, ipAddress, quantity]);
+        }
+
+        res.redirect('/cart'); // Chuyển hướng đến trang giỏ hàng
+    } catch (error) {
+        console.error("Error adding to cart:", error);
+        res.status(500).send('Internal Server Error');
+    }
+};
 module.exports = {
-    getProductDetails
+    getProductDetails,
+    addToCart,
 };
