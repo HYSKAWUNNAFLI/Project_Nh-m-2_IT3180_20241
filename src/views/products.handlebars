@@ -3,11 +3,10 @@
     <div class="product-list">
         {{#each products}}
         <div class="product-card">
-            <!-- Hiển thị ảnh sản phẩm từ URL -->
             <img src="{{this.product_image}}" alt="{{this.product_title}}" class="product-image">
             <div class="product-details">
                 <h2 class="product-title">{{this.product_title}}</h2>
-            
+
             </div>
             <div class="product-price">
                 Price: ${{this.product_price}}
@@ -18,8 +17,9 @@
         </div>
         {{/each}}
     </div>
+</div>
 
-    <div class="pagination">
+<div class="pagination">
     {{#if currentPageGt1}}
     <a href="/product?page={{currentPageMinus1}}" class="page-link">‹</a>
     {{/if}}
@@ -80,7 +80,8 @@
     }
 
     .product-card {
-        width: 23%; /* 4 sản phẩm mỗi hàng */
+        width: 23%;
+        /* 4 sản phẩm mỗi hàng */
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -111,19 +112,22 @@
         font-size: 1.2em;
         font-weight: bold;
         margin-bottom: 8px;
-        min-height: 40px; /* Đảm bảo chiều cao cố định cho tiêu đề */
+        min-height: 40px;
+        /* Đảm bảo chiều cao cố định cho tiêu đề */
     }
 
     .product-desc {
         font-size: 0.9em;
         color: #555;
         margin-bottom: 10px;
-        min-height: 60px; /* Đảm bảo chiều cao cố định cho mô tả */
+        min-height: 60px;
+        /* Đảm bảo chiều cao cố định cho mô tả */
         text-align: center;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
-        -webkit-line-clamp: 3; /* Hiển thị tối đa 3 dòng */
+        -webkit-line-clamp: 3;
+        /* Hiển thị tối đa 3 dòng */
         -webkit-box-orient: vertical;
     }
 
@@ -131,7 +135,8 @@
         font-size: 1em;
         color: black;
         margin: 10px 0;
-        min-height: 20px; /* Đảm bảo chiều cao đồng đều */
+        min-height: 20px;
+        /* Đảm bảo chiều cao đồng đều */
     }
 
     .product-footer {
@@ -151,7 +156,7 @@
 
     .btn:hover {
         background: white;
-        color: #ffffff; 
+        color: #ffffff;
         border: 1px solid #ff0000;
     }
 

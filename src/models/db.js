@@ -9,6 +9,7 @@ const pool = new Pool({
     port: 5432, // Cổng mặc định của PostgreSQL
 });
 
+
 // Kiểm tra kết nối
 pool.connect((err) => {
     if (err) {

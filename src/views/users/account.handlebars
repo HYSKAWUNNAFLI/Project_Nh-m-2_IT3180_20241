@@ -2,29 +2,59 @@
     <div class="container">
         <div class="row">
             <div class="col-2">
-                <div class="form-container">
+                <div class="form-container" id="form-wrapper">
                     <div class="form-btn">
                         <span onclick="switchToLogin()" id="btn-login">Login</span>
                         <span onclick="switchToRegister()" id="btn-register">Register</span>
                         <div id="Indicator"></div>
                     </div>
 
-                    <form id="LoginForm">
-                        <input type="text" placeholder="Username">
-                        <input type="password" placeholder="Password">
+                    <form method="POST" action="/account/login" id="LoginForm" class="login-form">
+                        <input type="email" id="emailInput" name="email" placeholder="Email" oninput="validateEmail()"
+                            required>
+                        <span id="emailError" style="color: red; display: none;">Invalid email format</span>
+                        <input type="password" name="password" placeholder="Password">
                         <button type="submit" class="btn">Login</button>
                         <a href="#">Forgot password</a>
                     </form>
 
-                    <form id="RegForm">
-                        <input type="text" placeholder="Username">
-                        <input type="email" placeholder="Email">
-                        <input type="password" placeholder="Password">
+                    <form method="POST" action="/account/register" id="RegForm" class="register-form">
+                        <input type="text" name="first_name" placeholder="First Name" required>
+                        <input type="text" name="last_name" placeholder="Last Name" required>
+                        <input type="email" id="emailInput" name="email" placeholder="Email" oninput="validateEmail()"
+                            required>
+                        <span id="emailError" style="color: red; display: none;">Invalid email format</span>
+                        <input type="text" name="phone_number" placeholder="Phone Number" required>
+                        <input type="password" name="password" placeholder="Password" required>
+                        <input type="text" name="address" placeholder="Address" required>
                         <button type="submit" class="btn">Register</button>
                     </form>
+
                 </div>
 
             </div>
         </div>
     </div>
 </div>
+
+<script>
+
+    // Email validation function
+    function validateEmail() {
+        const emailInput = document.getElementById('emailInput');
+        const emailError = document.getElementById('emailError');
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        // Check if the email format is valid
+        if (!emailRegex.test(emailInput.value)) {
+            emailError.classList.add('visible'); // Show error message
+            emailError.innerText =
+                'Invalid email format. Please include "@" and a domain (e.g., ".com").';
+            emailInput.style.borderColor = 'red'; // Highlight the input field
+        } else {
+            emailError.classList.remove('visible'); // Hide error message
+            emailInput.style.borderColor = ''; // Reset the input field style
+        }
+
+
+    }</script>

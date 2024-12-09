@@ -6,14 +6,16 @@
     <title>{{title}} - CXWUD Store</title>
     <link rel="stylesheet" href="/css/style.css">
     <script src="../../config/header.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
     <!-- Header -->
     <section id="header">
-        <a href="/"><img src="/assets/Ecommerce/images/07714f27254fd9a4771c3e604c7a62fd.jpg" class="logo" alt="CXWUD Logo"></a>
+        <a href="/"><img src="/assets/Ecommerce/images/07714f27254fd9a4771c3e604c7a62fd.jpg" class="logo"
+                alt="CXWUD Logo"></a>
 
         <div class="search__container">
             <input class="search__input" type="text" placeholder="Search">
@@ -33,7 +35,7 @@
                             <h4>NEW RELEASES</h4>
                             <a href="/product/shoes">Shoes</a>
                             <a href="/product/top">Top</a>
-                            <a href="/product/bottom">Bottom</a>                                             
+                            <a href="/product/bottom">Bottom</a>
                             <a href="/product/accessories">Accessories</a>
                             <a href="/product">Shop All</a>
                         </div>
@@ -54,7 +56,17 @@
                     </div>
                 </div>
                 <li><a class="nav-option" href="/about">About</a></li>
-                <li><a class="nav-option" href="/account">Account</a></li>
+                <li id="navbar-account" class="dropdown">
+                    {{#if user}}
+                    <a class="nav-option">{{user.first_name}} {{user.last_name}}</a>
+                    <div class="dropdown-menu">
+                        <a href="/account/logout" class="dropdown-item">Logout</a>
+                    </div>
+                    {{else}}
+                    <a class="nav-option" href="/account">Account</a>
+                    {{/if}}
+                </li>
+
                 <li id="lg-bag">
                     <a href="/cart">
                         <img src="/assets/Ecommerce/images/cart.png" class="cart-icon">

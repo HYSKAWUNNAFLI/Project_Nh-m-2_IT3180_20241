@@ -1,3 +1,4 @@
+const { config } = require('nodemon');
 const pool = require('../models/db'); // Kết nối database từ db.js
 
 // Số sản phẩm hiển thị trên mỗi trang
@@ -19,7 +20,7 @@ const showAllProducts = async (req, res) => {
 
         // Lấy danh sách sản phẩm cho trang hiện tại
         const productsResult = await pool.query(
-            'SELECT * FROM products LIMIT $1 OFFSET $2',
+            'SELECT * FROM products ORDER BY product_id ASC LIMIT $1 OFFSET $2 ',
             [productsPerPage, offset]
         );
         const products = productsResult.rows;
