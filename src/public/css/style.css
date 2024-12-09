@@ -181,7 +181,8 @@ body {
     /* Tạo vùng click lớn hơn */
 }
 
-.nav-option-1 { /* brand's color */
+.nav-option-1 {
+    /* brand's color */
     text-decoration: none;
     font-size: 16px;
     font-weight: 600;
@@ -647,12 +648,17 @@ footer {
     text-align: center;
     margin: 0 auto 80px;
     position: relative;
-    line-height: 80px; /* Tăng khoảng cách dòng */
+    line-height: 80px;
+    /* Tăng khoảng cách dòng */
     color: #c6f2f7;
-    font-size: 40px; /* Tăng kích thước chữ */
-    font-weight: bold; /* Làm chữ đậm */
-    text-transform: uppercase; /* Chuyển chữ thành chữ in hoa */
-    letter-spacing: 2px; /* Tăng khoảng cách giữa các chữ cái */
+    font-size: 40px;
+    /* Tăng kích thước chữ */
+    font-weight: bold;
+    /* Làm chữ đậm */
+    text-transform: uppercase;
+    /* Chuyển chữ thành chữ in hoa */
+    letter-spacing: 2px;
+    /* Tăng khoảng cách giữa các chữ cái */
 }
 
 
@@ -787,14 +793,21 @@ small {
 }
 
 .footer-col-1 {
-    flex-basis: 10%; /* Kích thước phần */
+    flex-basis: 10%;
+    /* Kích thước phần */
     text-align: center;
-    border: 2px solid #000; /* Thêm viền màu đen */
-    padding: 10px; /* Thêm khoảng cách bên trong */
-    margin: -64px 20px 10px 10px; /* Căn giữa và thu nhỏ khoảng cách */
-    box-sizing: border-box; /* Đảm bảo viền không làm thay đổi kích thước */
-    border-radius: 8px; /* Bo góc viền */
-    max-width: 150px; /* Giới hạn chiều rộng tối đa */
+    border: 2px solid #000;
+    /* Thêm viền màu đen */
+    padding: 10px;
+    /* Thêm khoảng cách bên trong */
+    margin: -64px 20px 10px 10px;
+    /* Căn giữa và thu nhỏ khoảng cách */
+    box-sizing: border-box;
+    /* Đảm bảo viền không làm thay đổi kích thước */
+    border-radius: 8px;
+    /* Bo góc viền */
+    max-width: 150px;
+    /* Giới hạn chiều rộng tối đa */
 }
 
 
@@ -917,17 +930,23 @@ select:focus {
 /* -- ---------- single Products detail ----------- -- */
 .single-product {
     margin-top: 50px;
-    border: 2px solid #000; /* Đường viền màu đen dày 2px */
-    padding: 20px; /* Thêm khoảng cách giữa viền và nội dung */
-    border-radius: 25px; /* Tùy chọn: Bo tròn các góc (nếu muốn) */
-    background-color: #101010; /* Tùy chọn: Thêm màu nền để nổi bật */
+    border: 2px solid #000;
+    /* Đường viền màu đen dày 2px */
+    padding: 20px;
+    /* Thêm khoảng cách giữa viền và nội dung */
+    border-radius: 25px;
+    /* Tùy chọn: Bo tròn các góc (nếu muốn) */
+    background-color: #101010;
+    /* Tùy chọn: Thêm màu nền để nổi bật */
     margin-bottom: 50px;
 }
 
 .single-product .col-2 img {
     padding: 0;
-    border: 1px solid #020202; /* Thêm viền đen xung quanh ảnh */
-    border-radius: 25px; /* Bo tròn góc ảnh (nếu cần) */
+    border: 1px solid #020202;
+    /* Thêm viền đen xung quanh ảnh */
+    border-radius: 25px;
+    /* Bo tròn góc ảnh (nếu cần) */
 }
 
 .single-product .col-2 {
@@ -1047,7 +1066,7 @@ td:last-child {
     padding: 50px 0;
 }
 
-.form-container {
+.account-form-container {
     background: #ffffff;
     width: 300px;
     height: 400px;
@@ -1062,24 +1081,24 @@ td:last-child {
     /* Thêm hiệu ứng */
 }
 
-.form-container::-webkit-scrollbar {
+.account-form-container::-webkit-scrollbar {
     width: 6px;
     /* Độ rộng thanh cuộn */
 }
 
-.form-container::-webkit-scrollbar-thumb {
+.account-form-container::-webkit-scrollbar-thumb {
     background-color: #d75229;
     /* Màu thanh trượt */
     border-radius: 10px;
     /* Góc bo tròn */
 }
 
-.form-container::-webkit-scrollbar-track {
+.account-form-container::-webkit-scrollbar-track {
     background: #f1f1f1;
     /* Màu nền của thanh cuộn */
 }
 
-.form-container span {
+.account-form-container span {
     font-weight: bold;
     padding: 10px 20px;
     color: #555;
@@ -1088,14 +1107,14 @@ td:last-child {
     position: relative;
 }
 
-.form-btn {
+.account-form-btn {
     display: flex;
     justify-content: space-around;
     position: relative;
     margin-bottom: 20px;
 }
 
-.form-container form {
+.account-form-container form {
     max-width: 300px;
     padding: 0 20px;
     position: absolute;
@@ -1507,50 +1526,51 @@ button:hover {
 
 /*product_detail.handlebars*/
 
-    .small-container {
-        max-width: 1200px;
-        margin: auto;
-        padding: 20px;
-    }
+.small-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
 
-    .row {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-    }
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
 
-    .col-2 {
-        flex: 0 0 48%;
-    }
+.col-2 {
+    flex: 0 0 48%;
+}
 
-    .btn {
-        background: #ff523b;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        cursor: pointer;
-        text-decoration: none;
-        display: inline-block;
-        margin-top: 10px;
-    }
+.btn {
+    background: #ff523b;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
 
-    .form-group {
-        margin-bottom: 15px;
-    }
+.form-group {
+    margin-bottom: 15px;
+}
 
-    select, input[type="number"] {
-        width: 100%;
-        padding: 8px;
-        margin-top: 5px;
-    }
+select,
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+}
 
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
 
-    table tr td {
-        padding: 10px;
-        border: 1px solid #ddd;
-    }
+table tr td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
