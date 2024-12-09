@@ -1048,7 +1048,7 @@ td:last-child {
 }
 
 .form-container {
-    background: #fff;
+    background: #ffffff;
     width: 300px;
     height: 400px;
     position: relative;
@@ -1057,6 +1057,26 @@ td:last-child {
     margin: auto;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    overflow-y: auto;
+    transition: height 0.5s ease, transform 0.5s ease;
+    /* Thêm hiệu ứng */
+}
+
+.form-container::-webkit-scrollbar {
+    width: 6px;
+    /* Độ rộng thanh cuộn */
+}
+
+.form-container::-webkit-scrollbar-thumb {
+    background-color: #d75229;
+    /* Màu thanh trượt */
+    border-radius: 10px;
+    /* Góc bo tròn */
+}
+
+.form-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* Màu nền của thanh cuộn */
 }
 
 .form-container span {
@@ -1140,6 +1160,187 @@ form a:hover {
     transition: transform 0.5s ease;
 }
 
+
+/*----------------Register-success----------------*/
+
+.success-page {
+    padding: 50px 0;
+}
+
+.main-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.column-center {
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.message-box {
+    background: #fff;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.message-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.message-header span {
+    font-weight: bold;
+    padding: 10px 20px;
+    color: #555;
+}
+
+.message-body p {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.action-btn {
+    width: 80%;
+    border: none;
+    cursor: pointer;
+    background: #ff523b;
+    color: #fff;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.action-btn:hover {
+    background: #ff784e;
+}
+
+
+/*------------------------------------------------*/
+
+/*--------------Error message for register------*/
+/* Style the input field */
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Highlight the input field when there's an error */
+input[type="email"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Style the error message */
+#error-message,
+#emailError {
+    color: red;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    margin-top: 5px;
+    display: none;
+    /* Initially hidden */
+    text-align: left;
+}
+
+/* Show the error message */
+#error-message.visible,
+#emailError.visible {
+    display: block;
+    /* Make the error message visible */
+}
+
+/* Button styling */
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/*----------------------------------------------------*/
+
+
+/*-----------------------------Log-out------------------------*/
+/* Định dạng cho dropdown */
+#navbar-account {
+    position: relative;
+    /* Giữ vị trí để dropdown-menu định vị theo nó */
+}
+
+.dropdown-menu {
+    display: none;
+    /* Ẩn menu mặc định */
+    position: absolute;
+    top: 100%;
+    /* Hiển thị bên dưới */
+    left: 0;
+    background-color: #fff;
+    /* Nền menu */
+    padding: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    /* Đổ bóng */
+    border-radius: 5px;
+    z-index: 100;
+    /* Đảm bảo hiển thị trên cùng */
+}
+
+.dropdown-menu a {
+    text-decoration: none;
+    color: #333;
+    /* Màu chữ */
+    display: block;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 3px;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f1f1f1;
+    /* Hiệu ứng hover cho item */
+}
+
+/* Hiển thị menu khi hover */
+#navbar-account:hover .dropdown-menu {
+    display: block;
+    /* Hiển thị menu */
+}
+
+/*----------------------------------------------------*/
 /* --------------- Media query FOR menu -------------- */
 @media only screen and (max-width: 800px) {
     nav ul {

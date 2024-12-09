@@ -6,7 +6,8 @@
     <title>{{title}} - CXWUD Store</title>
     <link rel="stylesheet" href="/css/style.css">
     <script src="../../config/header.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -55,24 +56,34 @@
                         </div>
                     </div>
                 </div>
+
                 <li><a class="nav-option-1" href="/product/essentials">Essentials</a></li>
                 <li><a class="nav-option-1" href="/product/nike">Nike</a></li>
                 <li><a class="nav-option-1" href="/product/celine">Celine</a></li>
                 <li><a class="nav-option-1" href="/product/adidas">Adidas</a></li>
                 <li><a class="nav-option-1" href="/product/stussy">Stussy</a></li>
-                <li><a class="nav-option" href="/account">Account</a></li>
-               <li id="lg-bag" style="position: relative;">
-                          <a href="/cart">
-                           <img src="/assets/Ecommerce/images/cart.png" class="cart-icon">
-                        <!-- Hiển thị tổng số sản phẩm -->
-                     <span class="cart-count">{{#if cartItemCount}}{{cartItemCount}}{{else}}0{{/if}}</span>
-
-                           </a>
+                <li id="navbar-account" class="dropdown">
+                    {{#if user}}
+                    <a class="nav-option">{{user.first_name}} {{user.last_name}}</a>
+                    <div class="dropdown-menu">
+                        <a href="/account/logout" class="dropdown-item">Logout</a>
+                    </div>
+                    {{else}}
+                    <a class="nav-option" href="/account">Account</a>
+                    {{/if}}
                 </li>
+                <li id="lg-bag" style="position: relative;">
+                    <a href="/cart">
+                        <img src="/assets/Ecommerce/images/cart.png" class="cart-icon">
+                        <!-- Hiển thị tổng số sản phẩm -->
+                        <span class="cart-count">{{#if cartItemCount}}{{cartItemCount}}{{else}}0{{/if}}</span>
 
+                    </a>
+                </li>
 
             </ul>
         </div>
     </section>
 </body>
+
 </html>

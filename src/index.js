@@ -6,6 +6,7 @@ const path = require('path');
 // Initialize Express
 const app = express();
 const PORT = process.env.PORT || 3000;
+const session = require('express-session');
 
 // Configure Handlebars as the view engine
 app.engine(
@@ -22,6 +23,13 @@ app.set('views', path.join(__dirname, 'views'));
 // Middleware to parse incoming requests
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(session({
+  secret: 'your_secret_key',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false } // Đặt thành true nếu sử dụng HTTPS
+}));
+
 
 // Static folder for assets (e.g., CSS, images, JS files)
 app.use(express.static(path.join(__dirname, 'public')));
@@ -30,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 const db = require('./models/db');
 db.connect();
 
+
 // Import middleware for cart item count
 const { getCartItemCount } = require('./controllers/cartController');
 
@@ -37,6 +46,13 @@ const { getCartItemCount } = require('./controllers/cartController');
 app.use(getCartItemCount);
 
 // Import and use routes
+// Import authentication middleware
+const { authenticator } = require('./middleware/authMiddleware');
+const { attachUserToLocals } = require('./middleware/authMiddleware');
+app.use(attachUserToLocals);
+
+// Routes
+
 const productRouters = require('./routes/productRouters');
 app.use('/product', productRouters);
 
@@ -49,6 +65,7 @@ app.use('/cart', cartRouters);
 const usersRouters = require('./routes/usersRouters');
 app.use('/account', usersRouters);
 
+
 const viewdetailRouters = require('./routes/viewdetailRouters');
 app.use('/viewdetail', viewdetailRouters);
 
@@ -58,6 +75,11 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something went wrong!');
 });
 
+
+// Protected route example (requires authentication)
+app.get('/payment/success', authenticator, (req, res) => {
+  res.render('success.handlebars', { title: "Payment Successful" });
+});
 
 
 // Start the server
