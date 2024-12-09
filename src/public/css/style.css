@@ -22,18 +22,6 @@
 /*----------Search bar--------------*/
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700,900');
 
-/* Base styling */
-body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    /* Căn giữa theo chiều ngang */
-    align-items: left;
-    /* Căn giữa theo chiều dọc */
-    background-color: #cc7372;
-    font-family: 'Poppins', sans-serif;
-}
 
 .search__container {
     max-width: 100%;
@@ -115,6 +103,8 @@ body {
 /*-----------------------*/
 
 body {
+    margin: 0;
+    padding: 0;
     font-family: 'Poppins', sans-serif;
     background: url('../assets/Ecommerce/images/landingpage.jpg') no-repeat center center fixed;
     background-size: cover;
@@ -123,9 +113,12 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    margin: 0;
-    /* Xóa margin mặc định của body */
+    justify-content: flex-start;
+    /* Nội dung bắt đầu từ trên cùng */
+    align-items: normal;
+    /* Căn giữa theo chiều ngang */
 }
+
 
 #header {
     display: flex;
@@ -481,21 +474,16 @@ p {
 .hero-section {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    /* Căn tất cả các phần tử sang trái */
+    justify-content: center;
+    /* Căn giữa nội dung theo chiều ngang */
+    margin: -80px 50px 10px 25px;
     align-items: center;
-    margin-left: -800px;
-    margin-top: -80px;
-    margin-right: 100px;
-    padding: 150px 50px;
-    /* Điều chỉnh padding cho phù hợp */
-    /* background: url('../assets/Ecommerce/images/background.png') no-repeat center center/cover; */
+    padding: 60px 50px 20px 20px;
+    /* Điều chỉnh padding phù hợp */
     min-height: 100vh;
     color: #fff;
     text-align: left;
-    /* Căn chữ sang trái */
 }
-
 
 
 .hero-content {
@@ -590,16 +578,6 @@ p {
     }
 }
 
-
-/* Footer */
-footer {
-
-    background-color: rgba(0, 0, 0, 0.08);
-    /* Semi-transparent footer */
-    text-align: center;
-    padding: 20px;
-    color: #888;
-}
 
 .header {
     background: radial-gradient(#fff, #ffd6d6);
@@ -774,7 +752,9 @@ small {
     color: #8a8a8a;
     font-size: 14px;
     padding: 60px 0 20px;
+    align-items: normal;
 }
+
 
 .footer p {
     color: #8a8a8a;
@@ -800,7 +780,7 @@ small {
     /* Thêm viền màu đen */
     padding: 10px;
     /* Thêm khoảng cách bên trong */
-    margin: -64px 20px 10px 10px;
+    margin: 64px 20px 10px 10px;
     /* Căn giữa và thu nhỏ khoảng cách */
     box-sizing: border-box;
     /* Đảm bảo viền không làm thay đổi kích thước */
@@ -1064,25 +1044,14 @@ td:last-child {
 
 .account-page {
     padding: 50px 0;
-}
-
-body {
     display: flex;
-    justify-content: center;
-    /* Căn giữa theo chiều ngang */
-    align-items: center;
-    /* Căn giữa theo chiều dọc */
-    min-height: 100vh;
-    /* Chiều cao tối thiểu bằng chiều cao của viewport */
-    margin: 0;
-    /* Loại bỏ margin mặc định của body */
 }
 
 .account-form-container {
     background: #ffffff;
     width: 300px;
     height: 400px;
-    position: sticky;
+    position: relative;
     text-align: center;
     padding: 20px 0;
     margin: auto;
