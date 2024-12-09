@@ -1,7 +1,6 @@
 // Import required modules
 const express = require('express');
 const { engine } = require('express-handlebars');
-const { Pool } = require('pg');
 const path = require('path');
 
 // Initialize Express
@@ -27,29 +26,41 @@ app.use(express.urlencoded({ extended: true }));
 // Static folder for assets (e.g., CSS, images, JS files)
 app.use(express.static(path.join(__dirname, 'public')));
 
-//connect to database
+// Connect to database
 const db = require('./models/db');
 db.connect();
 
+// Import middleware for cart item count
+const { getCartItemCount } = require('./controllers/cartController');
 
+// Use middleware for cart item count (global middleware)
+app.use(getCartItemCount);
 
+// Import and use routes
 const productRouters = require('./routes/productRouters');
-app.use('/product',productRouters);
+app.use('/product', productRouters);
 
 const defaultRouters = require('./routes/defaultRouters');
-app.use('/',defaultRouters);
+app.use('/', defaultRouters);
 
 const cartRouters = require('./routes/cartRouters');
-app.use('/cart',cartRouters);
+app.use('/cart', cartRouters);
 
 const usersRouters = require('./routes/usersRouters');
-app.use('/account',usersRouters);
+app.use('/account', usersRouters);
 
 const viewdetailRouters = require('./routes/viewdetailRouters');
-app.use('/viewdetail',viewdetailRouters);
+app.use('/viewdetail', viewdetailRouters);
+
+// Error handling middleware (optional)
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something went wrong!');
+});
+
+
 
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
-
