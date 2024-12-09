@@ -1066,11 +1066,23 @@ td:last-child {
     padding: 50px 0;
 }
 
+body {
+    display: flex;
+    justify-content: center;
+    /* Căn giữa theo chiều ngang */
+    align-items: center;
+    /* Căn giữa theo chiều dọc */
+    min-height: 100vh;
+    /* Chiều cao tối thiểu bằng chiều cao của viewport */
+    margin: 0;
+    /* Loại bỏ margin mặc định của body */
+}
+
 .account-form-container {
     background: #ffffff;
     width: 300px;
     height: 400px;
-    position: relative;
+    position: sticky;
     text-align: center;
     padding: 20px 0;
     margin: auto;
