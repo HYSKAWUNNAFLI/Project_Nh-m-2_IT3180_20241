@@ -1,31 +1,75 @@
-const pool = require('../models/db'); // Giả sử bạn đã kết nối pg pool ở đây
+const pool = require('../models/db');
 
-module.exports.searchProducts = async (req, res) => {
+module.exports.searchProducts = async (req, res, renderView = false) => {
     try {
         const query = req.query.query || '';
+        const page = parseInt(req.query.page) || 1;
+        const limit = 10;
+        const offset = (page - 1) * limit;
 
-        if (!query) {
-            // Nếu không có từ khóa tìm kiếm, trả về danh sách trống
-            return res.json({ products: [] });
+        if (!query.trim()) {
+            // Trả về danh sách rỗng nếu không có từ khóa
+            const response = { products: [], query, currentPage: page, totalPages: 0 };
+            return renderView ? res.render('search', response) : { response };
         }
 
-        // Truy vấn tìm sản phẩm có tên bắt đầu bằng từ khóa (case-insensitive)
-        // Giả sử bạn có bảng "products" với cột "product_title".
-        const sql = `
+        const keywords = query.trim().split(' ').map(word => `%${word}%`);
+
+        // Truy vấn kiểm tra nếu có tên sản phẩm khớp hoàn toàn
+        const exactMatchSql = `
             SELECT product_id, product_title, product_image, product_price
             FROM products
-            WHERE product_title ILIKE $1
-            LIMIT 10
+            WHERE LOWER(product_title) = LOWER($1)
+            LIMIT 1
         `;
+        const exactMatchResult = await pool.query(exactMatchSql, [query.trim()]);
 
-        const values = [`${query}%`];
-        // Sử dụng pattern matching: query% để tìm các sản phẩm bắt đầu với query
+        if (exactMatchResult.rows.length > 0) {
+            // Nếu tìm thấy sản phẩm khớp hoàn toàn, trả về thông tin sản phẩm
+            return {
+                exactMatch: exactMatchResult.rows[0], // Trả về sản phẩm khớp hoàn toàn
+            };
+        }
 
-        const result = await pool.query(sql, values);
+        // Truy vấn tìm các sản phẩm khớp một phần
+        const partialMatchSql = `
+            SELECT product_id, product_title, product_image, product_price
+            FROM products
+            WHERE ${keywords.map((_, idx) => `product_title ILIKE $${idx + 1}`).join(' AND ')}
+            LIMIT $${keywords.length + 1} OFFSET $${keywords.length + 2}
+        `;
+        const partialMatchResult = await pool.query(partialMatchSql, [...keywords, limit, offset]);
 
-        res.json({ products: result.rows });
+        // Truy vấn tổng số sản phẩm
+        const countSql = `
+            SELECT COUNT(*) AS total
+            FROM products
+            WHERE ${keywords.map((_, idx) => `product_title ILIKE $${idx + 1}`).join(' AND ')}
+        `;
+        const totalCountResult = await pool.query(countSql, keywords);
+
+        const totalProducts = parseInt(totalCountResult.rows[0].total, 10);
+        const totalPages = Math.ceil(totalProducts / limit);
+
+        const response = {
+            products: partialMatchResult.rows,
+            query,
+            currentPage: page,
+            totalPages,
+            currentPageGt1: page > 1,
+            currentPageLtTotalPages: page < totalPages,
+            currentPageMinus1: page - 1,
+            currentPagePlus1: page + 1,
+            pagination: Array.from({ length: totalPages }, (_, i) => ({
+                pageNumber: i + 1,
+                isActive: i + 1 === page,
+            })),
+        };
+
+        return { response }; // Trả về kết quả khớp một phần
     } catch (error) {
         console.error('Error searching products:', error);
-        res.status(500).json({ error: 'Internal server error' });
+        const response = { products: [], query, error: 'Internal server error' };
+        return renderView ? res.render('search', response) : { response };
     }
 };
