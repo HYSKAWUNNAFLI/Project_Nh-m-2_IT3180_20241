@@ -39,11 +39,6 @@ const db = require('./models/db');
 db.connect();
 
 
-// Import middleware for cart item count
-const { getCartItemCount } = require('./controllers/cartController');
-
-// Use middleware for cart item count (global middleware)
-app.use(getCartItemCount);
 
 // Import and use routes
 // Import authentication middleware
