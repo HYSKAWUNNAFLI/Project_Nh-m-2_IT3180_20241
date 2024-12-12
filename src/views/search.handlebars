@@ -1,0 +1,192 @@
+<div class="container">
+    <h1>Search Results</h1>
+    <div class="product-list">
+        {{#if products.length}}
+        {{#each products}}
+        <div class="product-card">
+            <img src="{{this.product_image}}" alt="{{this.product_title}}" class="product-image">
+            <div class="product-details">
+                <h2 class="product-title">{{this.product_title}}</h2>
+            </div>
+            <div class="product-price">
+                Price: ${{this.product_price}}
+            </div>
+            <div class="product-footer">
+                <a href="/viewdetail/{{this.product_id}}" class="btn">View Details</a>
+            </div>
+        </div>
+        {{/each}}
+        {{else}}
+        <p>No products found for your search query.</p>
+        {{/if}}
+    </div>
+</div>
+
+<div class="pagination">
+    {{#if currentPageGt1}}
+    <a href="/search?query={{query}}&page={{currentPageMinus1}}" class="page-link">‹</a>
+    {{/if}}
+
+    {{#each pagination}}
+    <a href="/search?query={{../query}}&page={{this.pageNumber}}" class="page-link {{#if this.isActive}}active{{/if}}">
+        {{this.pageNumber}}
+    </a>
+    {{/each}}
+
+    {{#if currentPageLtTotalPages}}
+    <a href="/search?query={{query}}&page={{currentPagePlus1}}" class="page-link">›</a>
+    {{/if}}
+</div>
+
+<style>
+    .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+        font-size: 16px;
+    }
+
+    .page-link {
+        margin: 0 5px;
+        padding: 10px 15px;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        color: #333;
+        font-weight: normal;
+    }
+
+    .page-link.active {
+        background-color: #007bff;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .page-link:hover {
+        background-color: #0056b3;
+        color: #fff;
+    }
+</style>
+
+<style>
+    .container {
+        width: 80%;
+        margin: auto;
+    }
+
+    .product-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+    }
+
+    .product-card {
+        width: 23%;
+        /* 4 sản phẩm mỗi hàng */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 16px;
+        background: #f9f9f9;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+
+    .product-details {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .product-title {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 8px;
+        min-height: 40px;
+        /* Đảm bảo chiều cao cố định cho tiêu đề */
+    }
+
+    .product-desc {
+        font-size: 0.9em;
+        color: #555;
+        margin-bottom: 10px;
+        min-height: 60px;
+        /* Đảm bảo chiều cao cố định cho mô tả */
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        /* Hiển thị tối đa 3 dòng */
+        -webkit-box-orient: vertical;
+    }
+
+    .product-price {
+        font-size: 1em;
+        color: black;
+        margin: 10px 0;
+        min-height: 20px;
+        /* Đảm bảo chiều cao đồng đều */
+    }
+
+    .product-footer {
+        margin-top: 10px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 8px 16px;
+        background: #ff0000;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: normal;
+        border: 1px solid #ffffff;
+    }
+
+    .btn:hover {
+        background: white;
+        color: #ffffff;
+        border: 1px solid #ff0000;
+    }
+
+    /* CSS cho thanh điều hướng số trang */
+    .pagination {
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    .page-link {
+        display: inline-block;
+        margin: 0 5px;
+        padding: 10px 15px;
+        background: #f1f1f1;
+        color: #333;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+
+    .page-link.active {
+        background: #007bff;
+        color: white;
+    }
+
+    .page-link:hover {
+        background: #0056b3;
+        color: white;
+    }
+</style>
