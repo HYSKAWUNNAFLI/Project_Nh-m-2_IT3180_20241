@@ -65,6 +65,8 @@ app.use('/cart', cartRouters);
 const usersRouters = require('./routes/usersRouters');
 app.use('/account', usersRouters);
 
+const searchRouters = require('./routes/searchRouters');
+app.use('/search', searchRouters);
 
 const viewdetailRouters = require('./routes/viewdetailRouters');
 app.use('/viewdetail', viewdetailRouters);

@@ -124,3 +124,97 @@ document.querySelectorAll('.update-form, .delete-form').forEach(form => {
         }
     });
 });
+
+
+/*-------------------------Search-box-----------------------*/
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+    let timeout = null;
+    let currentProducts = []; // Lưu kết quả sản phẩm tìm kiếm hiện tại
+
+    function showResults(products) {
+        searchResults.innerHTML = '';
+        currentProducts = products; // Cập nhật danh sách sản phẩm hiện tại
+
+        if (products.length === 0) {
+            // Nếu không có sản phẩm, hiển thị thông báo "No product found"
+            const message = document.createElement('div');
+            message.textContent = 'No product found';
+            message.style.padding = '10px';
+            message.style.color = '#555';
+            message.style.fontStyle = 'italic';
+            searchResults.appendChild(message);
+            searchResults.style.display = 'block';
+            return;
+        }
+
+        const ul = document.createElement('ul');
+        products.forEach(product => {
+            const li = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = `/viewdetail/${product.product_id}`;
+            link.textContent = product.product_title;
+            li.appendChild(link);
+            ul.appendChild(li);
+        });
+
+        searchResults.appendChild(ul);
+        searchResults.style.display = 'block';
+    }
+
+    async function searchProducts(query) {
+        if (!query) {
+            searchResults.style.display = 'none';
+            currentProducts = [];
+            return;
+        }
+
+        try {
+            const response = await fetch(`/search?query=${encodeURIComponent(query)}`);
+            const data = await response.json();
+            showResults(data.products || []);
+        } catch (error) {
+            console.error('Error fetching search results:', error);
+        }
+    }
+
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.trim();
+        if (timeout) {
+            clearTimeout(timeout);
+        }
+        timeout = setTimeout(() => {
+            searchProducts(query);
+        }, 300);
+    });
+
+    // Ẩn kết quả khi nhấp ra ngoài
+    document.addEventListener('click', (event) => {
+        if (!searchResults.contains(event.target) && event.target !== searchInput) {
+            searchResults.style.display = 'none';
+        }
+    });
+
+    // Xử lý khi nhấn Enter
+    searchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            // Nếu có ít nhất một sản phẩm trong kết quả
+            if (currentProducts.length > 0) {
+                // Chuyển sang trang chi tiết sản phẩm đầu tiên
+                window.location.href = `/viewdetail/${currentProducts[0].product_id}`;
+            } else {
+                // Hiển thị thông báo không tìm thấy sản phẩm
+                searchResults.innerHTML = '';
+                const message = document.createElement('div');
+                message.textContent = 'No product found';
+                message.style.padding = '10px';
+                message.style.color = '#555';
+                message.style.fontStyle = 'italic';
+                searchResults.appendChild(message);
+                searchResults.style.display = 'block';
+            }
+        }
+    });
+});
+/*--------------------------------------------------*/

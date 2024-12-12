@@ -100,6 +100,82 @@
     }
 }
 
+
+/*-----------Search-Result--------------------*/
+
+.search__results {
+    position: absolute;
+    top: 100%;
+    /* Hiển thị ngay bên dưới ô input */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: 95% center;
+    border-radius: 50px;
+    border: 1px solid #575756;
+    transition: all 250ms ease-in-out;
+    border: 1px solid #575756;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    font-size: 14px;
+    color: #000000;
+    /* Mặc định ẩn, sẽ hiển thị khi có kết quả */
+    display: none;
+    transition: all 250ms ease-in-out;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+.search__results ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.search__results li {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search__results li:hover {
+    background-color: #f1f1f1;
+}
+
+.search__results a {
+    text-decoration: none;
+    color: #575756;
+    display: block;
+}
+
+.search__results a:hover {
+    color: #000;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .search__results {
+        font-size: 12px;
+    }
+
+    .search__results li {
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search__results {
+        font-size: 11px;
+    }
+
+    .search__results li {
+        padding: 6px 10px;
+    }
+}
+
 /*-----------------------*/
 
 body {
@@ -620,6 +696,15 @@ p {
 
 .col-4 img {
     width: 100%;
+    /* Đảm bảo hình ảnh chiếm hết chiều rộng của khung */
+    height: 300px;
+    /* Chiều cao cố định */
+    object-fit: cover;
+    /* Cắt hình ảnh nếu không phù hợp tỷ lệ */
+    display: block;
+    /* Đảm bảo hình ảnh không bị lỗi với các yếu tố inline khác */
+    margin: 0 auto;
+    /* Căn giữa nếu cần */
 }
 
 .title {
@@ -780,7 +865,7 @@ small {
     /* Thêm viền màu đen */
     padding: 10px;
     /* Thêm khoảng cách bên trong */
-    margin: 64px 20px 10px 10px;
+    margin: 0px 20px 10px 10px;
     /* Căn giữa và thu nhỏ khoảng cách */
     box-sizing: border-box;
     /* Đảm bảo viền không làm thay đổi kích thước */
