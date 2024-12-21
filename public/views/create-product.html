@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Create New Product</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../assets/vendors/css/vendor.bundle.base.css">
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="shortcut icon" href="../assets/images/favicon.png" />
+</head>
+
+<body>
+    <div class="container-scroller">
+        <!-- Sidebar -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+                <a class="sidebar-brand brand-logo" href="/views/index.html"><img src="quang" alt="logo" /></a>
+                <a class="sidebar-brand brand-logo-mini" href="/views/index.html"><img
+                        src="../assets/images/logo-mini.svg" alt="logo" /></a>
+            </div>
+            <ul class="nav">
+                <li class="nav-item nav-category">
+                    <span class="nav-link">Navigation</span>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="/views/index.html">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-speedometer"></i>
+                        </span>
+                        <span class="menu-title">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="/views/admin.html">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-laptop"></i>
+                        </span>
+                        <span class="menu-title">Admin Panel</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="/views/user.html">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-account"></i>
+                        </span>
+                        <span class="menu-title">Customer Panel</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="/views/categories.html">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-table-large"></i>
+                        </span>
+                        <span class="menu-title">Categories</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="/views/product.html">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-chart-bar"></i>
+                        </span>
+                        <span class="menu-title">Products</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="pages/icons/mdi.html">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-contacts"></i>
+                        </span>
+                        <span class="menu-title">Orders</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="container-fluid page-body-wrapper">
+            <!-- Navbar -->
+            <nav class="navbar p-0 fixed-top d-flex flex-row">
+                <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+                    <button class="navbar-toggler navbar-toggler align-self-center" type="button"
+                        data-toggle="minimize">
+                        <span class="mdi mdi-menu"></span>
+                    </button>
+                    <ul class="navbar-nav w-100">
+                        <li class="nav-item w-100">
+                            <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
+                                <input type="text" class="form-control" placeholder="Search products">
+                            </form>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav navbar-nav-right">
+                        <li class="nav-item dropdown d-none d-lg-block">
+                            <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown"
+                                data-bs-toggle="dropdown" aria-expanded="false" href="#">+ Add New Product</a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                                aria-labelledby="createbuttonDropdown">
+                                <h6 class="p-3 mb-0">Projects</h6>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <div class="preview-icon bg-dark rounded-circle">
+                                            <i class="mdi mdi-file-outline text-primary"></i>
+                                        </div>
+                                    </div>
+                                    <div class="preview-item-content">
+                                        <p class="preview-subject ellipsis mb-1">Software Development</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <p class="p-3 mb-0 text-center">See all projects</p>
+                            </div>
+                        </li>
+                        <li class="nav-item nav-settings d-none d-lg-block">
+                            <a class="nav-link" href="#">
+                                <i class="mdi mdi-view-grid"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown border-left">
+                            <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="mdi mdi-email"></i>
+                                <span class="count bg-success"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                                aria-labelledby="messageDropdown">
+                                <h6 class="p-3 mb-0">Messages</h6>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <img src="../assets/images/faces/face4.jpg" alt="image"
+                                            class="rounded-circle profile-pic">
+                                    </div>
+                                    <div class="preview-item-content">
+                                        <p class="preview-subject ellipsis mb-1">Mark send you a message</p>
+                                        <p class="text-muted mb-0"> 1 Minutes ago </p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <p class="p-3 mb-0 text-center">4 new messages</p>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown border-left">
+                            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
+                                data-bs-toggle="dropdown">
+                                <i class="mdi mdi-bell"></i>
+                                <span class="count bg-danger"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                                aria-labelledby="notificationDropdown">
+                                <h6 class="p-3 mb-0">Notifications</h6>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <div class="preview-icon bg-dark rounded-circle">
+                                            <i class="mdi mdi-calendar text-success"></i>
+                                        </div>
+                                    </div>
+                                    <div class="preview-item-content">
+                                        <p class="preview-subject mb-1">Event today</p>
+                                        <p class="text-muted ellipsis mb-0"> Just a reminder that you have an event
+                                            today </p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <p class="p-3 mb-0 text-center">See all notifications</p>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" id="profileDropdown" href="#" data-bs-toggle="dropdown">
+                                <div class="navbar-profile">
+                                    <img class="img-xs rounded-circle" src="../assets/images/faces/face15.jpg" alt="">
+                                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Henry Klein</p>
+                                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                                aria-labelledby="profileDropdown">
+                                <h6 class="p-3 mb-0">Profile</h6>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <div class="preview-icon bg-dark rounded-circle">
+                                            <i class="mdi mdi-settings text-success"></i>
+                                        </div>
+                                    </div>
+                                    <div class="preview-item-content">
+                                        <p class="preview-subject mb-1">Settings</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <div class="preview-icon bg-dark rounded-circle">
+                                            <i class="mdi mdi-logout text-danger"></i>
+                                        </div>
+                                    </div>
+                                    <div class="preview-item-content">
+                                        <p class="preview-subject mb-1">Log out</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+                        data-toggle="offcanvas">
+                        <span class="mdi mdi-format-line-spacing"></span>
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Main content -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <!-- Breadcrumb -->
+                    <div class="page-header">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/views/index.html">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="/views/product.html">Products</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Create new</li>
+                            </ol>
+                        </nav>
+                    </div>
+
+                    <!-- Create Product Form -->
+                    <div class="row">
+                        <div class="col-12 grid-margin">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Create new product</h4>
+                                    <form id="createProductForm" class="forms-sample">
+                                        <div class="form-group">
+                                            <label for="productName">Name</label>
+                                            <input type="text" class="form-control" id="productName"
+                                                name="product_title" required
+                                                style="color: #ffffff; background: #2A3038; border-color: #2c2e33;">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="productCategory">Category</label>
+                                            <select class="form-control" id="productCategory" name="cat_id" required
+                                                style="color: #ffffff; background: #2A3038; border-color: #2c2e33;">
+                                                <!-- Categories will be loaded dynamically -->
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="productDescription">Description</label>
+                                            <textarea class="form-control" id="productDescription"
+                                                name="product_description" rows="4"
+                                                style="color: #ffffff; background: #2A3038; border-color: #2c2e33;"></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Picture</label>
+                                            <div class="border rounded p-2" style="background-color: #191c24;">
+                                                <div class="position-relative">
+                                                    <div class="d-flex flex-column align-items-center justify-content-center"
+                                                        style="min-height: 150px; border: 2px dashed #6c7293; border-radius: 5px;">
+                                                        <div id="imagePreview" class="text-center mb-2">
+                                                            <img src="../assets/images/upload-placeholder.png"
+                                                                alt="Click to browse"
+                                                                style="max-width: 50px; opacity: 0.5;">
+                                                        </div>
+                                                        <div class="text-center">
+                                                            <p class="mb-1" style="font-size: 0.875rem;">Drop your file
+                                                                here, or click to browse</p>
+                                                            <p class="text-muted small mb-0"
+                                                                style="font-size: 0.75rem;">Max
+                                                                size: 5 MB</p>
+                                                            <p class="text-muted small" style="font-size: 0.75rem;">
+                                                                Supports: image/png, image/jpeg, image/jpg</p>
+                                                        </div>
+                                                        <input type="file" id="productImage" name="product_image"
+                                                            class="position-absolute w-100 h-100 opacity-0"
+                                                            style="cursor: pointer; top: 0; left: 0; bottom: 0; right: 0;"
+                                                            accept="image/png, image/jpeg, image/jpg" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="productPrice">Price</label>
+                                            <input type="number" class="form-control" id="productPrice"
+                                                name="product_price" required
+                                                style="color: #ffffff; background: #2A3038; border-color: #2c2e33;">
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary mr-2">Save</button>
+                                        <button type="button" class="btn btn-dark"
+                                            onclick="window.location.href='/views/product.html'">Cancel</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright ©
+                            2024</span>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- plugins:js -->
+    <script src="../assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- inject:js -->
+    <script src="../assets/js/off-canvas.js"></script>
+    <script src="../assets/js/hoverable-collapse.js"></script>
+    <script src="../assets/js/misc.js"></script>
+    <script src="../assets/js/settings.js"></script>
+    <script src="../assets/js/todolist.js"></script>
+
+    <script>
+        // Load categories when page loads
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const response = await fetch('/categories/api/categories');
+                const categories = await response.json();
+                const select = document.getElementById('productCategory');
+
+                categories.forEach(category => {
+                    const option = document.createElement('option');
+                    option.value = category.cat_id;
+                    option.textContent = category.cat_name;
+                    select.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error loading categories:', error);
+            }
+
+            // Image preview
+            document.getElementById('productImage').addEventListener('change', function (e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        const preview = document.getElementById('imagePreview');
+                        preview.innerHTML = `<img src="${e.target.result}" class="img-fluid" 
+                                                style="max-height: 100px; border-radius: 5px;">`;
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // Form submission
+            document.getElementById('createProductForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const formData = new FormData(e.target);
+
+                try {
+                    const response = await fetch('/products/api/products', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    if (response.ok) {
+                        alert('Product created successfully');
+                        window.location.href = '/views/product.html';
+                    } else {
+                        const error = await response.json();
+                        alert(error.message || 'Error creating product');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Error creating product');
+                }
+            });
+        });
+
+        // Thêm xử lý drag & drop
+        const dropZone = document.querySelector('.form-group');
+        const inputFile = document.getElementById('productImage');
+
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropZone.addEventListener(eventName, highlight, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, unhighlight, false);
+        });
+
+        function highlight(e) {
+            dropZone.classList.add('border-primary');
+        }
+
+        function unhighlight(e) {
+            dropZone.classList.remove('border-primary');
+        }
+
+        dropZone.addEventListener('drop', handleDrop, false);
+
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            inputFile.files = files;
+
+            // Trigger change event để hiển thị preview
+            const event = new Event('change');
+            inputFile.dispatchEvent(event);
+        }
+    </script>
+</body>
+
+</html>
