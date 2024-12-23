@@ -20,16 +20,74 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../assets/images/favicon.png" />
+    <style>
+        .sidebar-brand-wrapper {
+            height: 70px;
+            padding: 10px 20px;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            width: 255px;
+            z-index: 999;
+        }
+
+        .sidebar-brand.brand-logo {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+            text-decoration: none;
+        }
+
+        .brand-logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #fff;
+            text-transform: uppercase;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .brand-logo-mini {
+            display: none;
+        }
+
+        @media (max-width: 991px) {
+            .sidebar-brand-wrapper {
+                width: 70px;
+                padding: 10px;
+            }
+
+            .sidebar-brand.brand-logo {
+                display: none;
+            }
+
+            .brand-logo-mini {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .brand-logo-mini .brand-logo-text {
+                font-size: 18px;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <div class="container-scroller">
         <!-- Sidebar -->
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
-            <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-                <a class="sidebar-brand brand-logo" href="/views/index.html"><img src="quang" alt="logo" /></a>
-                <a class="sidebar-brand brand-logo-mini" href="/views/index.html"><img
-                        src="../assets/images/logo-mini.svg" alt="logo" /></a>
+            <div class="sidebar-brand-wrapper">
+                <a class="sidebar-brand brand-logo" href="/views/index.html">
+                    <span class="brand-logo-text">CXWUD</span>
+                </a>
+                <a class="brand-logo-mini" href="/views/index.html">
+                    <span class="brand-logo-text">CX</span>
+                </a>
             </div>
             <ul class="nav">
                 <li class="nav-item nav-category">
@@ -90,8 +148,9 @@
             <!-- Navbar -->
             <nav class="navbar p-0 fixed-top d-flex flex-row">
                 <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-                    <a class="navbar-brand brand-logo-mini" href="/views/index.html"><img
-                            src="../assets/images/logo-mini.svg" alt="logo" /></a>
+                    <a class="navbar-brand brand-logo-mini" href="/views/index.html">
+                        <span class="brand-logo-text">CX</span>
+                    </a>
                 </div>
                 <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
                     <button class="navbar-toggler navbar-toggler align-self-center" type="button"
@@ -101,14 +160,15 @@
                     <ul class="navbar-nav w-100">
                         <li class="nav-item w-100">
                             <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-                                <input type="text" class="form-control" placeholder="Search products">
+                                <input type="text" class="form-control" placeholder="Search administrators">
                             </form>
                         </li>
                     </ul>
                     <ul class="navbar-nav navbar-nav-right">
                         <li class="nav-item dropdown d-none d-lg-block">
                             <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown"
-                                data-bs-toggle="dropdown" aria-expanded="false" href="#">+ Add New Product</a>
+                                data-bs-toggle="dropdown" aria-expanded="false" href="/views/create-product.html">+
+                                Create New Product</a>
                             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
                                 aria-labelledby="createbuttonDropdown">
                                 <h6 class="p-3 mb-0">Projects</h6>
@@ -124,69 +184,37 @@
                                     </div>
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <p class="p-3 mb-0 text-center">See all projects</p>
-                            </div>
-                        </li>
-                        <li class="nav-item nav-settings d-none d-lg-block">
-                            <a class="nav-link" href="#">
-                                <i class="mdi mdi-view-grid"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item dropdown border-left">
-                            <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="mdi mdi-email"></i>
-                                <span class="count bg-success"></span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                                aria-labelledby="messageDropdown">
-                                <h6 class="p-3 mb-0">Messages</h6>
-                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item preview-item">
                                     <div class="preview-thumbnail">
-                                        <img src="../assets/images/faces/face4.jpg" alt="image"
-                                            class="rounded-circle profile-pic">
+                                        <div class="preview-icon bg-dark rounded-circle">
+                                            <i class="mdi mdi-web text-info"></i>
+                                        </div>
                                     </div>
                                     <div class="preview-item-content">
-                                        <p class="preview-subject ellipsis mb-1">Mark send you a message</p>
-                                        <p class="text-muted mb-0"> 1 Minutes ago </p>
+                                        <p class="preview-subject ellipsis mb-1">UI Development</p>
                                     </div>
                                 </a>
-                                <div class="dropdown-divider"></div>
-                                <p class="p-3 mb-0 text-center">4 new messages</p>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown border-left">
-                            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
-                                data-bs-toggle="dropdown">
-                                <i class="mdi mdi-bell"></i>
-                                <span class="count bg-danger"></span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                                aria-labelledby="notificationDropdown">
-                                <h6 class="p-3 mb-0">Notifications</h6>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item preview-item">
                                     <div class="preview-thumbnail">
                                         <div class="preview-icon bg-dark rounded-circle">
-                                            <i class="mdi mdi-calendar text-success"></i>
+                                            <i class="mdi mdi-layers text-danger"></i>
                                         </div>
                                     </div>
                                     <div class="preview-item-content">
-                                        <p class="preview-subject mb-1">Event today</p>
-                                        <p class="text-muted ellipsis mb-0"> Just a reminder that you have an event
-                                            today </p>
+                                        <p class="preview-subject ellipsis mb-1">Software Testing</p>
                                     </div>
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <p class="p-3 mb-0 text-center">See all notifications</p>
+                                <p class="p-3 mb-0 text-center">See all projects</p>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link" id="profileDropdown" href="#" data-bs-toggle="dropdown">
+                            <a class="nav-link" id="profileDropdown" href="#" data-bs-toggle="dropdown"
+                                aria-expanded="false">
                                 <div class="navbar-profile">
                                     <img class="img-xs rounded-circle" src="../assets/images/faces/face15.jpg" alt="">
-                                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Henry Klein</p>
+                                    <p class="mb-0 d-none d-sm-block navbar-profile-name" id="adminName"></p>
                                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                                 </div>
                             </a>
@@ -194,18 +222,7 @@
                                 aria-labelledby="profileDropdown">
                                 <h6 class="p-3 mb-0">Profile</h6>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item preview-item">
-                                    <div class="preview-thumbnail">
-                                        <div class="preview-icon bg-dark rounded-circle">
-                                            <i class="mdi mdi-settings text-success"></i>
-                                        </div>
-                                    </div>
-                                    <div class="preview-item-content">
-                                        <p class="preview-subject mb-1">Settings</p>
-                                    </div>
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item preview-item">
+                                <a class="dropdown-item preview-item" href="/auth/logout">
                                     <div class="preview-thumbnail">
                                         <div class="preview-icon bg-dark rounded-circle">
                                             <i class="mdi mdi-logout text-danger"></i>
@@ -247,23 +264,24 @@
                                     <h4 class="card-title">Create new administrator</h4>
                                     <form id="createAdminForm" class="forms-sample">
                                         <div class="form-group">
-                                            <label for="adminName">Name</label>
-                                            <input type="text" class="form-control" id="adminName" name="admin_name"
-                                                placeholder="Enter admin name" required
+                                            <label for="admin_name">Name <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="admin_name" name="admin_name"
+                                                required placeholder="Enter admin name"
                                                 style="color: #ffffff; background: #2A3038; border-color: #2c2e33;">
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="adminEmail">Email</label>
-                                            <input type="email" class="form-control" id="adminEmail" name="admin_email"
-                                                placeholder="Enter email" required
+                                            <label for="admin_email">Email <span class="text-danger">*</span></label>
+                                            <input type="email" class="form-control" id="admin_email" name="admin_email"
+                                                required placeholder="Enter email"
                                                 style="color: #ffffff; background: #2A3038; border-color: #2c2e33;">
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="adminPassword">Password</label>
-                                            <input type="password" class="form-control" id="adminPassword"
-                                                name="admin_password" placeholder="Enter password" required
+                                            <label for="admin_password">Password <span
+                                                    class="text-danger">*</span></label>
+                                            <input type="password" class="form-control" id="admin_password"
+                                                name="admin_password" required placeholder="Enter password"
                                                 style="color: #ffffff; background: #2A3038; border-color: #2c2e33;">
                                         </div>
 
@@ -313,10 +331,15 @@
             e.preventDefault();
 
             const formData = {
-                admin_name: document.getElementById('adminName').value,
-                admin_email: document.getElementById('adminEmail').value,
-                admin_password: document.getElementById('adminPassword').value
+                admin_name: document.getElementById('admin_name').value.trim(),
+                admin_email: document.getElementById('admin_email').value.trim(),
+                admin_password: document.getElementById('admin_password').value
             };
+
+            if (!formData.admin_name || !formData.admin_email || !formData.admin_password) {
+                alert('Please fill in all required fields');
+                return;
+            }
 
             try {
                 const response = await fetch('/admin/api/admins', {
