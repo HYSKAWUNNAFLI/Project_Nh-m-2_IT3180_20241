@@ -259,4 +259,4 @@ const showAllProductsByBrand5 = async (req, res) => {
 };
 
 
-module.exports = { showAllProducts, showAllProductsByCategory1,showAllProductsByCategory2, showAllProductsByCategory3,showAllProductsByCategory4, showAllProductsByBrand1, showAllProductsByBrand2, showAllProductsByBrand3, showAllProductsByBrand4, showAllProductsByBrand5  };
+module.exports = { showAllProducts, showAllProductsByCategory1, showAllProductsByCategory2, showAllProductsByCategory3, showAllProductsByCategory4, showAllProductsByBrand1, showAllProductsByBrand2, showAllProductsByBrand3, showAllProductsByBrand4, showAllProductsByBrand5 };
